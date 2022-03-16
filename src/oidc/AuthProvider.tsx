@@ -1,13 +1,12 @@
 import { OIDCClient } from "@plusauth/plusauth-oidc-client-js";
-import { IPlusAuthClientOptions } from "@plusauth/plusauth-oidc-client-js/types/interfaces";
 import { Provider as JotaiProvider, useAtom } from "jotai";
 import { useEffect, useMemo, useState } from "react";
-import { useAuth } from "./hooks";
+import { OIDCClientOptions } from "./interfaces";
 import { authAtom, tokensAtom, userAtom } from "./atoms";
 import privateScope from "./scope";
 
 type AuthProviderProps = {
-  config: IPlusAuthClientOptions;
+  config: OIDCClientOptions;
   children: React.ReactNode;
 };
 

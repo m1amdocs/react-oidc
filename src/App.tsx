@@ -1,11 +1,10 @@
-import { IPlusAuthClientOptions } from "@plusauth/plusauth-oidc-client-js/types/interfaces";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { AuthProvider } from "./oidc";
+import { AuthProvider, OIDCClientOptions } from "./oidc";
 import AuthCallback from "./AuthCallback";
 import HomeView from "./HomeView";
 import SilentRenew from "./SilentRenew";
 
-const config: IPlusAuthClientOptions = {
+const config: OIDCClientOptions = {
   issuer: import.meta.env.VITE_OIDC_ISSUER as string,
   client_id: import.meta.env.VITE_CLIENT_ID as string,
   redirect_uri: "https://localhost:3000/callback",

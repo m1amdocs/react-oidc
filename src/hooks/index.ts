@@ -1,7 +1,7 @@
 import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
-import { authAtom, tokensAtom, userAtom } from "./atoms";
-import privateScope from "./scope";
+import { authAtom, tokensAtom, userAtom } from "../components/atoms";
+import privateScope from "../components/atoms/scope";
 
 export function useAuth() {
   const [auth] = useAtom(authAtom, privateScope);

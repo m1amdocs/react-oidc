@@ -1,9 +1,10 @@
+import * as React from "react"
 import { OIDCClient } from "@plusauth/plusauth-oidc-client-js";
-import { Provider as JotaiProvider, useAtom } from "jotai";
+import { Atom, Provider as JotaiProvider, useAtom } from "jotai";
 import { useEffect, useMemo, useState } from "react";
-import { OIDCClientOptions } from "./interfaces";
+import { OIDCClientOptions } from "../interfaces";
 import { authAtom, tokensAtom, userAtom } from "./atoms";
-import privateScope from "./scope";
+import privateScope from "./atoms/scope";
 
 type AuthProviderProps = {
   config: OIDCClientOptions;
@@ -56,13 +57,14 @@ function Provider({ oidcClient, children }: ProviderProps) {
 
 export function AuthProvider({ config, children }: AuthProviderProps) {
   const oidcClient = useMemo(() => new OIDCClient(config), [config]);
+  const initialValues = [
+    [authAtom, oidcClient],
+    [userAtom, oidcClient.user],
+  ] as Iterable<readonly [Atom<unknown>, unknown]>
 
   return (
     <JotaiProvider
-      initialValues={[
-        [authAtom, oidcClient],
-        [userAtom, oidcClient.user],
-      ]}
+      initialValues={initialValues}
       scope={privateScope}
     >
       <Provider oidcClient={oidcClient}>{children}</Provider>

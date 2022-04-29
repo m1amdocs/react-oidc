@@ -1,30 +1,30 @@
-import { useAtom } from 'jotai';
-import { useEffect, useState } from 'react';
+import { useAtom } from 'jotai'
+import { useEffect, useState } from 'react'
 import {
   authAtom, tokensAtom, userAtom, privateScope,
-} from '../atoms';
+} from '../atoms'
 
 export default function useAuth() {
-  const [auth] = useAtom(authAtom, privateScope);
-  const [user] = useAtom(userAtom, privateScope);
-  const [tokens] = useAtom(tokensAtom, privateScope);
+  const [auth] = useAtom(authAtom, privateScope)
+  const [user] = useAtom(userAtom, privateScope)
+  const [tokens] = useAtom(tokensAtom, privateScope)
 
-  const [isLoggedIn, setLoggedIn] = useState(user && auth?.user);
-  const [checkingLogin, setCheckingLogin] = useState(true);
+  const [isLoggedIn, setLoggedIn] = useState(user && auth?.user)
+  const [checkingLogin, setCheckingLogin] = useState(true)
 
   async function checkLogin() {
     if (user || (await auth?.isLoggedIn())) {
-      setLoggedIn(true);
-      setCheckingLogin(false);
+      setLoggedIn(true)
+      setCheckingLogin(false)
     } else {
-      setLoggedIn(false);
-      setCheckingLogin(false);
+      setLoggedIn(false)
+      setCheckingLogin(false)
     }
   }
 
   useEffect(() => {
-    checkLogin();
-  }, [auth]);
+    checkLogin()
+  }, [auth])
 
   return {
     auth,
@@ -32,5 +32,5 @@ export default function useAuth() {
     isLoggedIn,
     tokens,
     checkingLogin,
-  };
+  }
 }

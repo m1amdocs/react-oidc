@@ -1,3 +1,3 @@
-export * from './interfaces';
-export * from './AuthProvider';
-export { default as useAuth } from './useAuth';
+export * from './interfaces'
+export * from './AuthProvider'
+export { default as useAuth } from './useAuth'

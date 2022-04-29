@@ -1,21 +1,21 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { AuthProvider, OIDCClientOptions } from "../../src"
-import AuthCallback from "./AuthCallback";
-import HomeView from "./HomeView";
-import SilentRenew from "./SilentRenew";
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { AuthProvider, OIDCClientOptions } from '../../src'
+import AuthCallback from './AuthCallback'
+import HomeView from './HomeView'
+import SilentRenew from './SilentRenew'
 
 const config: OIDCClientOptions = {
   issuer: import.meta.env.VITE_OIDC_ISSUER as string,
   client_id: import.meta.env.VITE_CLIENT_ID as string,
-  redirect_uri: "https://localhost:3000/callback",
-  post_logout_redirect_uri: "https://localhost:3000",
+  redirect_uri: 'https://localhost:3000/callback',
+  post_logout_redirect_uri: 'https://localhost:3000',
   autoSilentRenew: true,
   checkSession: false,
   requestUserInfo: true,
   secondsToRefreshAccessTokenBeforeExp: 3000, // Wait ten minutes before refreshing
-  scope: "openid offline_access",
-  silent_redirect_uri: "https://localhost:3000/silent-renew",
-};
+  scope: 'openid offline_access',
+  silent_redirect_uri: 'https://localhost:3000/silent-renew',
+}
 
 function App() {
   return (
@@ -30,7 +30,7 @@ function App() {
         </Routes>
       </AuthProvider>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App

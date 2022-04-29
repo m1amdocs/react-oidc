@@ -2,7 +2,7 @@
 
 ## Installation
 
-`npm i @marketone/react-oidc` 
+`npm i @marketone/react-oidc`
 
 ## Usage
 

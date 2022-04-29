@@ -1,19 +1,19 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../src";
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from '../../src'
 
 export default function AuthCallback() {
-  const { auth } = useAuth();
-  const navigate = useNavigate();
+  const { auth } = useAuth()
+  const navigate = useNavigate()
 
   async function handleCallback() {
-    await auth?.loginCallback();
-    navigate("/");
+    await auth?.loginCallback()
+    navigate('/')
   }
 
   useEffect(() => {
-    handleCallback();
-  }, []);
+    handleCallback()
+  }, [])
 
-  return null;
+  return null
 }

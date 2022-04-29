@@ -5,25 +5,25 @@
 ### Wrap application in an `AuthProvider`
 
 ```js
-import AuthProvider from "connect-go-oidc-react";
+import AuthProvider from 'connect-go-oidc-react'
 
 const authProviderConfig = {
-  issuer: "FILL_IN", // eg. https://example.com
-  client_id: "FILL_IN",
-  redirect_uri: "FILL_IN", // eg. https://localhost:3000/callback
-  post_logout_redirect_uri: "FILL_IN", // eg. https://localhost:3000
+  issuer: 'FILL_IN', // eg. https://example.com
+  client_id: 'FILL_IN',
+  redirect_uri: 'FILL_IN', // eg. https://localhost:3000/callback
+  post_logout_redirect_uri: 'FILL_IN', // eg. https://localhost:3000
   autoSilentRenew: true,
   checkSession: false,
   requestUserInfo: true,
   secondsToRefreshAccessTokenBeforeExp: 3000, // Wait ten minutes before refreshing
-  scope: "openid offline_access",
-  silent_redirect_uri: "FILL_IN", // eg. https://localhost:3000/silent-renew
-};
+  scope: 'openid offline_access',
+  silent_redirect_uri: 'FILL_IN', // eg. https://localhost:3000/silent-renew
+}
 
 export default function App() {
-  <AuthProvider config={authProviderConfig}>
+  ;<AuthProvider config={authProviderConfig}>
     {/* The rest of your application */}
-  </AuthProvider>;
+  </AuthProvider>
 }
 ```
 
@@ -51,24 +51,24 @@ This can be done however you want, but we'll demonstrate how to do it using Reac
 ```js
 // <AuthCallback />
 
-import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-import { useAuth } from "connect-go-oidc-react";
+import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { useAuth } from 'connect-go-oidc-react'
 
 export default function AuthCallback() {
-  const { auth } = useAuth();
-  const navigate = useNavigate();
+  const { auth } = useAuth()
+  const navigate = useNavigate()
 
   async function handleCallback() {
-    await auth.loginCallback();
-    navigate("/");
+    await auth.loginCallback()
+    navigate('/')
   }
 
   useEffect(() => {
-    handleCallback();
-  }, []);
+    handleCallback()
+  }, [])
 
-  return null;
+  return null
 }
 ```
 
@@ -99,7 +99,7 @@ These two views are all you need to get authentication set up inside of your app
 Anywhere inside of a component within your application you can use the `useAuth` hook provided by the library to gain access to authentication information.
 
 ```js
-const { auth, isLoggedIn, user, tokens, checkingLogin } = useAuth();
+const { auth, isLoggedIn, user, tokens, checkingLogin } = useAuth()
 ```
 
 #### `auth`

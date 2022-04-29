@@ -1,27 +1,27 @@
-import { useEffect, useState } from "react";
-import { useAuth } from "../../src";
+import { useEffect, useState } from 'react'
+import { useAuth } from '../../src'
 
 export default function HomeView() {
-  const { auth, isLoggedIn, user, tokens, checkingLogin } = useAuth();
-  const [count, setCount] = useState(0);
+  const { auth, isLoggedIn, user, tokens, checkingLogin } = useAuth()
+  const [count, setCount] = useState(0)
 
   async function login() {
-    await auth?.login();
+    await auth?.login()
   }
 
   async function logout() {
-    await auth?.logout();
+    await auth?.logout()
   }
 
   useEffect(() => {
     const timer = setTimeout(() => {
-      setCount(count + 1);
-    }, 1000);
+      setCount(count + 1)
+    }, 1000)
 
     return () => {
-      clearTimeout(timer);
-    };
-  }, [count]);
+      clearTimeout(timer)
+    }
+  }, [count])
 
   return (
     <div>
@@ -43,5 +43,5 @@ export default function HomeView() {
         <button onClick={login}>Log in</button>
       )}
     </div>
-  );
+  )
 }

@@ -1,1 +1,3 @@
-export * from './useAuth'
+import useAuth from './useAuth';
+
+export default useAuth;

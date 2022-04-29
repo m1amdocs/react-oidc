@@ -1,8 +1,10 @@
-import { useAtom } from "jotai";
-import { useEffect, useState } from "react";
-import { authAtom, tokensAtom, userAtom, privateScope } from "../atoms";
+import { useAtom } from 'jotai';
+import { useEffect, useState } from 'react';
+import {
+  authAtom, tokensAtom, userAtom, privateScope,
+} from '../atoms';
 
-export function useAuth() {
+export default function useAuth() {
   const [auth] = useAtom(authAtom, privateScope);
   const [user] = useAtom(userAtom, privateScope);
   const [tokens] = useAtom(tokensAtom, privateScope);
@@ -24,5 +26,11 @@ export function useAuth() {
     checkLogin();
   }, [auth]);
 
-  return { auth, user, isLoggedIn, tokens, checkingLogin };
+  return {
+    auth,
+    user,
+    isLoggedIn,
+    tokens,
+    checkingLogin,
+  };
 }

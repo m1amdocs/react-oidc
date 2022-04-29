@@ -23,7 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-# example
+# rules for example folder
 certs
 *.pem
 .env.*

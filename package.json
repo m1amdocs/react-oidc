@@ -17,7 +17,7 @@
   "lint-staged": {
     "*.{ts,tsx}": [
       "prettier --write",
-      "yarn lint",
+      "yarn lint --fix",
       "git update-index --again"
     ]
   },

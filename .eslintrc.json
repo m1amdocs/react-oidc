@@ -21,11 +21,13 @@
     "react",
     "@typescript-eslint"
   ],
+  "ignorePatterns": ["example/**/*"],
   "rules": {
     "import/extensions": [ "error", "ignorePackages", { "ts": "never", "tsx": "never" } ],
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
-    "react/jsx-no-useless-fragment": "off"
+    "react/jsx-no-useless-fragment": "off",
+    "semi": ["error", "never"]
   },
   "settings": {
     "import/resolver": {

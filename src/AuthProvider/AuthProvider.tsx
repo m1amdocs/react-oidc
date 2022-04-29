@@ -2,16 +2,15 @@ import * as React from "react"
 import { OIDCClient } from "@plusauth/plusauth-oidc-client-js";
 import { Atom, Provider as JotaiProvider, useAtom } from "jotai";
 import { useEffect, useMemo, useState } from "react";
+import { authAtom, tokensAtom, userAtom, privateScope } from "../atoms";
 import { OIDCClientOptions } from "../interfaces";
-import { authAtom, tokensAtom, userAtom } from "./atoms";
-import privateScope from "./atoms/scope";
 
-type AuthProviderProps = {
+export type AuthProviderProps = {
   config: OIDCClientOptions;
   children: React.ReactNode;
 };
 
-type ProviderProps = { oidcClient: OIDCClient; children: React.ReactNode };
+export type ProviderProps = { oidcClient: OIDCClient; children: React.ReactNode };
 
 function Provider({ oidcClient, children }: ProviderProps) {
   const [user, setUser] = useAtom(userAtom, privateScope);

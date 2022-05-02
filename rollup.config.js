@@ -6,8 +6,8 @@ import typescript from '@rollup/plugin-typescript'
 import { terser } from 'rollup-plugin-terser'
 import json from '@rollup/plugin-json'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
-
-const packageJson = require('./package.json')
+import nodePolyfills from 'rollup-plugin-node-polyfills'
+import packageJson from './package.json'
 
 export default [
   {
@@ -26,9 +26,10 @@ export default [
       },
     ],
     plugins: [
-      peerDepsExternal(),
-      resolve(),
+      peerDepsExternal({ includeDependencies: true }),
+      resolve({ browser: true }),
       commonjs(),
+      nodePolyfills(),
       json({
         compact: true,
       }),

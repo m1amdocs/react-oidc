@@ -1,7 +1,6 @@
-import * as React from 'react'
 import { OIDCClient } from '@plusauth/plusauth-oidc-client-js'
 import { Atom, Provider as JotaiProvider, useAtom } from 'jotai'
-import { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import {
   authAtom, tokensAtom, userAtom, privateScope,
 } from '../atoms'

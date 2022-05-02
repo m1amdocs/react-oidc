@@ -26,7 +26,8 @@
     "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
     "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".ts"] }],
     "react/jsx-no-useless-fragment": "off",
-    "semi": ["error", "never"]
+    "semi": ["error", "never"],
+    "import/no-unresolved": ["error", { "ignore": ["^react$"] }]
   },
   "settings": {
     "import/resolver": {

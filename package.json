@@ -30,6 +30,10 @@
     "@plusauth/plusauth-oidc-client-js": "^0.12.0",
     "jotai": "^1.6.0"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "peerDependencies": {
     "react": ">=17",
     "react-dom": ">=17"
